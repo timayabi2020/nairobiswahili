@@ -1,0 +1,61 @@
+{
+  "sectionLabel": "Masomo • Lessons",
+  "title": "Learn at Your Own Pace",
+  "intro": "From your first \"Jambo!\" to fluent conversations — we have a class that fits exactly where you are.",
+  "items": [
+    {
+      "levelClass": "beginner",
+      "level": "Beginner",
+      "title": "Kiswahili Basics",
+      "description": "Greetings, numbers, everyday phrases and the building blocks of Swahili grammar.",
+      "schedule": "Every Saturday, 9 AM",
+      "duration": "90 min",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "intermediate",
+      "level": "Intermediate",
+      "title": "Conversational Swahili",
+      "description": "Hold real conversations about work, food, travel and Kenyan culture with confidence.",
+      "schedule": "Tuesdays & Thursdays",
+      "duration": "2 hrs",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "advanced",
+      "level": "Advanced",
+      "title": "Fluency & Literature",
+      "description": "Dive into Swahili poetry, proverbs, newspaper reading and professional writing.",
+      "schedule": "Wednesdays, 6 PM",
+      "duration": "2 hrs",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "beginner",
+      "level": "Kids",
+      "title": "Swahili for Children",
+      "description": "Songs, stories and games that make language learning magical for ages 5-12.",
+      "schedule": "Sundays, 10 AM",
+      "duration": "60 min",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "intermediate",
+      "level": "Business",
+      "title": "Swahili for Business",
+      "description": "Corporate vocabulary, negotiation phrases, and East African business etiquette.",
+      "schedule": "Fridays, 7 PM",
+      "duration": "90 min",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "advanced",
+      "level": "Intensive",
+      "title": "Weekend Immersion",
+      "description": "A 2-day intensive retreat - no English allowed. Complete with cultural activities and local excursions.",
+      "schedule": "Monthly",
+      "duration": "2 days",
+      "ctaText": "Register →"
+    }
+  ]
+}
