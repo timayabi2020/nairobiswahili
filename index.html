@@ -1,12 +1,834 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nairobi Swahili</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nairobi Swahili – Jifunze Kiswahili</title>
+  <meta name="description" content="Join Nairobi's liveliest Swahili learning community. Classes, meetups, and cultural events for all levels." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --clr-earth:   #c1440e;
+      --clr-gold:    #e8a020;
+      --clr-forest:  #2d6a4f;
+      --clr-sky:     #1a3c5e;
+      --clr-cream:   #fdf6ec;
+      --clr-dark:    #1a1210;
+      --clr-muted:   #6b5b4e;
+      --radius:      12px;
+      --shadow:      0 4px 24px rgba(0,0,0,.12);
+      --transition:  .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--clr-cream);
+      color: var(--clr-dark);
+      line-height: 1.65;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253,246,236,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(193,68,14,.15);
+      padding: .85rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--clr-earth);
+      letter-spacing: .5px;
+    }
+    .nav-logo span { color: var(--clr-gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .9rem; font-weight: 500;
+      color: var(--clr-muted);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--clr-earth); }
+    .btn-nav {
+      background: var(--clr-earth);
+      color: #fff !important;
+      padding: .45rem 1.1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-nav:hover { background: #a33609 !important; transform: translateY(-1px); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--clr-earth); transition: var(--transition); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center;
+      background:
+        linear-gradient(135deg, rgba(26,18,16,.72) 0%, rgba(45,106,79,.55) 100%),
+        url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=1400&q=80') center/cover no-repeat;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .hero-inner { max-width: 780px; margin: auto; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--clr-gold);
+      color: var(--clr-dark);
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: .35rem .9rem; border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--clr-gold); font-style: normal; }
+    .hero p {
+      font-size: 1.15rem; color: rgba(255,255,255,.85);
+      max-width: 560px; margin: 0 auto 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: .85rem 2rem; border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform var(--transition), box-shadow var(--transition); cursor: pointer; }
+    .btn-primary { background: var(--clr-earth); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(193,68,14,.45); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+
+    /* ── Phrase ticker ── */
+    .ticker {
+      background: var(--clr-forest);
+      color: #fff;
+      padding: .7rem 2rem;
+      text-align: center;
+      font-size: .9rem;
+      overflow: hidden;
+    }
+    .ticker strong { color: var(--clr-gold); margin-right: .5rem; }
+    #ticker-text { display: inline-block; transition: opacity .4s; }
+
+    /* ── Section layout ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: auto; }
+    .section-label {
+      display: inline-block;
+      color: var(--clr-earth); font-size: .78rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .lead { color: var(--clr-muted); font-size: 1.05rem; max-width: 560px; margin-bottom: 3rem; }
+
+    /* ── Stats strip ── */
+    .stats {
+      background: var(--clr-sky);
+      color: #fff;
+      padding: 3.5rem 2rem;
+    }
+    .stats-grid {
+      max-width: 900px; margin: auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; color: var(--clr-gold); line-height: 1;
+    }
+    .stat-label { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: .4rem; }
+
+    /* ── Lessons grid ── */
+    #lessons { background: #fff; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+    }
+    .card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      background: var(--clr-cream);
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.16); }
+    .card-top {
+      height: 8px;
+    }
+    .card-top.beginner  { background: linear-gradient(90deg, var(--clr-forest), #52b788); }
+    .card-top.intermediate { background: linear-gradient(90deg, var(--clr-gold), #f4d03f); }
+    .card-top.advanced  { background: linear-gradient(90deg, var(--clr-earth), #e74c3c); }
+    .card-body { padding: 1.6rem; }
+    .card-level {
+      font-size: .72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: .6rem;
+    }
+    .card-level.beginner    { color: var(--clr-forest); }
+    .card-level.intermediate{ color: #b07800; }
+    .card-level.advanced    { color: var(--clr-earth); }
+    .card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: .5rem; }
+    .card p  { font-size: .9rem; color: var(--clr-muted); margin-bottom: 1.2rem; }
+    .card-meta { display: flex; gap: 1rem; font-size: .8rem; color: var(--clr-muted); margin-bottom: 1.2rem; }
+    .card-meta span::before { content: ''; }
+    .pill {
+      display: inline-block;
+      padding: .35rem .9rem;
+      border-radius: 999px;
+      font-size: .8rem; font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid currentColor;
+      transition: background var(--transition), color var(--transition);
+    }
+    .pill.beginner    { color: var(--clr-forest); }
+    .pill.beginner:hover { background: var(--clr-forest); color: #fff; }
+    .pill.intermediate{ color: #b07800; }
+    .pill.intermediate:hover{ background: #b07800; color: #fff; }
+    .pill.advanced    { color: var(--clr-earth); }
+    .pill.advanced:hover { background: var(--clr-earth); color: #fff; }
+
+    /* ── Meetups ── */
+    #meetups { background: var(--clr-cream); }
+    .meetup-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .meetup-item {
+      display: flex; gap: 1.4rem; align-items: flex-start;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+    .meetup-item:hover { transform: translateX(4px); }
+    .meetup-date {
+      min-width: 64px; text-align: center;
+      background: var(--clr-earth);
+      color: #fff;
+      border-radius: 10px;
+      padding: .6rem .4rem;
+    }
+    .meetup-date .day { font-family: 'Playfair Display', serif; font-size: 1.8rem; line-height: 1; }
+    .meetup-date .mon { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; opacity: .85; }
+    .meetup-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .3rem; }
+    .meetup-info p  { font-size: .88rem; color: var(--clr-muted); }
+    .meetup-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
+    .tag {
+      font-size: .72rem; font-weight: 600; letter-spacing: .5px;
+      padding: .2rem .6rem; border-radius: 999px;
+      background: rgba(193,68,14,.1); color: var(--clr-earth);
+    }
+
+    /* ── Vocab flashcard ── */
+    #vocab { background: var(--clr-sky); color: #fff; text-align: center; }
+    #vocab h2, #vocab .section-label { color: #fff; }
+    #vocab .section-label { opacity: .7; }
+    #vocab .lead { color: rgba(255,255,255,.7); margin: 0 auto 2.5rem; }
+    .flashcard-wrap { perspective: 1000px; max-width: 420px; margin: 0 auto 2rem; }
+    .flashcard {
+      width: 100%; height: 220px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .6s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
+    }
+    .flashcard.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border-radius: var(--radius);
+      backface-visibility: hidden;
+      padding: 2rem;
+    }
+    .card-front { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+    .card-back  { background: var(--clr-gold); color: var(--clr-dark); transform: rotateY(180deg); }
+    .card-face .word { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: .5rem; }
+    .card-face .hint { font-size: .85rem; opacity: .65; }
+    .card-face .translation { font-size: 1.1rem; font-weight: 600; margin-top: .5rem; }
+    .vocab-nav { display: flex; gap: 1rem; justify-content: center; align-items: center; }
+    .vocab-nav button {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      border-radius: 999px;
+      padding: .55rem 1.4rem;
+      font-size: .88rem; font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .vocab-nav button:hover { background: rgba(255,255,255,.28); }
+    #vocab-counter { font-size: .85rem; opacity: .6; }
+
+    /* ── Testimonials ── */
+    #testimonials { background: #fff; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+    }
+    .testi-card {
+      background: var(--clr-cream);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .testi-card blockquote {
+      font-size: .95rem; color: var(--clr-muted);
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid var(--clr-gold);
+      padding-left: 1rem;
+    }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--clr-earth);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .9rem;
+    }
+    .testi-name { font-weight: 600; font-size: .9rem; }
+    .testi-sub  { font-size: .78rem; color: var(--clr-muted); }
+    .stars { color: var(--clr-gold); font-size: .85rem; letter-spacing: 1px; margin-bottom: .3rem; }
+
+    /* ── Newsletter ── */
+    #newsletter {
+      background: linear-gradient(135deg, var(--clr-earth) 0%, #8b2500 100%);
+      color: #fff; text-align: center;
+    }
+    #newsletter h2 { color: #fff; }
+    #newsletter .lead { color: rgba(255,255,255,.8); margin: 0 auto 2rem; }
+    .signup-form {
+      display: flex; gap: .8rem; max-width: 480px; margin: auto;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .signup-form input {
+      flex: 1; min-width: 220px;
+      padding: .85rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      font-size: .95rem;
+      outline: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+    }
+    .signup-form input::placeholder { color: rgba(255,255,255,.55); }
+    .signup-form input:focus { background: rgba(255,255,255,.22); }
+    .btn-white {
+      background: #fff; color: var(--clr-earth);
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      font-weight: 700; font-size: .95rem;
+      border: none; cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+    .signup-note { font-size: .78rem; opacity: .6; margin-top: .8rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--clr-dark);
+      color: rgba(255,255,255,.6);
+      padding: 3.5rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1100px; margin: auto;
+      display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 2.5rem; margin-bottom: 3rem;
+    }
+    .footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.5rem; }
+    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { color: #fff; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: .5px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul li a { font-size: .85rem; transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--clr-gold); }
+    .footer-bottom {
+      max-width: 1100px; margin: auto;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .8rem;
+      font-size: .8rem;
+    }
+    .social-links { display: flex; gap: 1rem; }
+    .social-links a {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .social-links a:hover { border-color: var(--clr-gold); color: var(--clr-gold); }
+
+    /* ── Scroll-reveal utility ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--clr-cream); padding: 1.5rem 2rem; box-shadow: var(--shadow); gap: 1.2rem; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Karibu Nairobi Swahili</h1>
-    <p>Learn Swahili in Nairobi.</p>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <a href="#" class="nav-logo">Nairobi <span>Swahili</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#lessons">Lessons</a></li>
+      <li><a href="#meetups">Meetups</a></li>
+      <li><a href="#vocab">Vocab</a></li>
+      <li><a href="#testimonials">Stories</a></li>
+      <li><a href="#newsletter" class="btn-nav">Join Free</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Phrase Ticker ── -->
+  <div class="ticker">
+    <strong>Neno la Leo (Word of the Day):</strong>
+    <span id="ticker-text">Karibu — Welcome</span>
+  </div>
+
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">🌍 Nairobi's #1 Swahili Community</span>
+      <h1>Speak <em>Kiswahili</em><br>Live the Culture</h1>
+      <p>Immersive lessons, vibrant meetups, and a community that makes learning Swahili feel like home — right here in Nairobi.</p>
+      <div class="hero-cta">
+        <a href="#lessons" class="btn btn-primary">Explore Lessons</a>
+        <a href="#meetups" class="btn btn-outline">Upcoming Meetups</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Stats ── -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num" data-target="1200">0</div>
+        <div class="stat-label">Active Learners</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-target="48">0</div>
+        <div class="stat-label">Meetups Hosted</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Expert Teachers</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-target="30">0</div>
+        <div class="stat-label">Nationalities</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Lessons ── -->
+  <section id="lessons">
+    <div class="container">
+      <span class="section-label reveal">Masomo • Lessons</span>
+      <h2 class="reveal">Learn at Your Own Pace</h2>
+      <p class="lead reveal">From your first "Jambo!" to fluent conversations — we have a class that fits exactly where you are.</p>
+      <div class="cards">
+
+        <div class="card reveal">
+          <div class="card-top beginner"></div>
+          <div class="card-body">
+            <div class="card-level beginner">Beginner</div>
+            <h3>Kiswahili Basics</h3>
+            <p>Greetings, numbers, everyday phrases and the building blocks of Swahili grammar.</p>
+            <div class="card-meta">
+              <span>📅 Every Saturday, 9 AM</span>
+              <span>⏱ 90 min</span>
+            </div>
+            <a href="#newsletter" class="pill beginner">Enroll →</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top intermediate"></div>
+          <div class="card-body">
+            <div class="card-level intermediate">Intermediate</div>
+            <h3>Conversational Swahili</h3>
+            <p>Hold real conversations about work, food, travel and Kenyan culture with confidence.</p>
+            <div class="card-meta">
+              <span>📅 Tuesdays & Thursdays</span>
+              <span>⏱ 2 hrs</span>
+            </div>
+            <a href="#newsletter" class="pill intermediate">Enroll →</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top advanced"></div>
+          <div class="card-body">
+            <div class="card-level advanced">Advanced</div>
+            <h3>Fluency & Literature</h3>
+            <p>Dive into Swahili poetry, proverbs, newspaper reading and professional writing.</p>
+            <div class="card-meta">
+              <span>📅 Wednesdays, 6 PM</span>
+              <span>⏱ 2 hrs</span>
+            </div>
+            <a href="#newsletter" class="pill advanced">Enroll →</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top beginner"></div>
+          <div class="card-body">
+            <div class="card-level beginner">Kids</div>
+            <h3>Swahili for Children</h3>
+            <p>Songs, stories and games that make language learning magical for ages 5–12.</p>
+            <div class="card-meta">
+              <span>📅 Sundays, 10 AM</span>
+              <span>⏱ 60 min</span>
+            </div>
+            <a href="#newsletter" class="pill beginner">Enroll →</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top intermediate"></div>
+          <div class="card-body">
+            <div class="card-level intermediate">Business</div>
+            <h3>Swahili for Business</h3>
+            <p>Corporate vocabulary, negotiation phrases, and East African business etiquette.</p>
+            <div class="card-meta">
+              <span>📅 Fridays, 7 PM</span>
+              <span>⏱ 90 min</span>
+            </div>
+            <a href="#newsletter" class="pill intermediate">Enroll →</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top advanced"></div>
+          <div class="card-body">
+            <div class="card-level advanced">Intensive</div>
+            <h3>Weekend Immersion</h3>
+            <p>A 2-day intensive retreat — no English allowed. Complete with cultural activities and local excursions.</p>
+            <div class="card-meta">
+              <span>📅 Monthly</span>
+              <span>⏱ 2 days</span>
+            </div>
+            <a href="#newsletter" class="pill advanced">Register →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Meetups ── -->
+  <section id="meetups">
+    <div class="container">
+      <span class="section-label reveal">Mikutano • Meetups</span>
+      <h2 class="reveal">Connect & Practice Together</h2>
+      <p class="lead reveal">Language lives in community. Join our free monthly events — no registration required, just show up!</p>
+      <div class="meetup-list">
+
+        <div class="meetup-item reveal">
+          <div class="meetup-date"><div class="day">19</div><div class="mon">Jul</div></div>
+          <div class="meetup-info">
+            <h3>Swahili Movie Night — "Nairobi Half Life"</h3>
+            <p>📍 The Alchemist, Westlands · 6:30 PM – 9:30 PM · Free entry</p>
+            <div class="meetup-tags"><span class="tag">All Levels</span><span class="tag">Social</span><span class="tag">Free</span></div>
+          </div>
+        </div>
+
+        <div class="meetup-item reveal">
+          <div class="meetup-date"><div class="day">26</div><div class="mon">Jul</div></div>
+          <div class="meetup-info">
+            <h3>Saturday Language Exchange Café</h3>
+            <p>📍 Java House, Karen · 9:00 AM – 12:00 PM · Bring your own coffee</p>
+            <div class="meetup-tags"><span class="tag">Conversation</span><span class="tag">Beginner-friendly</span><span class="tag">Weekly</span></div>
+          </div>
+        </div>
+
+        <div class="meetup-item reveal">
+          <div class="meetup-date"><div class="day">02</div><div class="mon">Aug</div></div>
+          <div class="meetup-info">
+            <h3>Swahili Cooking Class & Dinner</h3>
+            <p>📍 Foodie Studio, Kilimani · 3:00 PM – 7:00 PM · KES 1,500</p>
+            <div class="meetup-tags"><span class="tag">Cultural</span><span class="tag">Food</span><span class="tag">Intermediate+</span></div>
+          </div>
+        </div>
+
+        <div class="meetup-item reveal">
+          <div class="meetup-date"><div class="day">16</div><div class="mon">Aug</div></div>
+          <div class="meetup-info">
+            <h3>Taarab Music & Swahili Poetry Evening</h3>
+            <p>📍 Kenya National Theatre, CBD · 7:00 PM – 10:00 PM · KES 500</p>
+            <div class="meetup-tags"><span class="tag">Arts & Culture</span><span class="tag">Music</span><span class="tag">All Welcome</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Vocabulary Flashcards ── -->
+  <section id="vocab">
+    <div class="container">
+      <span class="section-label">Msamiati • Vocabulary</span>
+      <h2>Flip a Card, Learn a Word</h2>
+      <p class="lead">Click the card to reveal the English translation. Use the arrows to browse more words.</p>
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="flashcard" title="Click to flip">
+          <div class="card-face card-front">
+            <div class="word" id="swahili-word">Asante</div>
+            <div class="hint">Click to translate ↓</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="word" id="english-word">Thank you</div>
+            <div class="translation" id="word-example">"Asante sana" — Thank you very much</div>
+          </div>
+        </div>
+      </div>
+      <div class="vocab-nav">
+        <button id="prev-word">← Prev</button>
+        <span id="vocab-counter">1 / 10</span>
+        <button id="next-word">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ── -->
+  <section id="testimonials">
+    <div class="container">
+      <span class="section-label reveal">Hadithi • Stories</span>
+      <h2 class="reveal">What Our Learners Say</h2>
+      <div class="testi-grid">
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I moved to Nairobi knowing zero Swahili. Six months later I'm chatting with my neighbors and bargaining at Gikomba. This community changed my life."</blockquote>
+          <div class="testi-author">
+            <div class="avatar">SL</div>
+            <div>
+              <div class="testi-name">Sophie Laurent</div>
+              <div class="testi-sub">French expat, 8 months in Nairobi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"The meetups are the highlight of my month. You practice in a relaxed setting and leave with new friends. The teachers are patient and genuinely passionate."</blockquote>
+          <div class="testi-author">
+            <div class="avatar">DK</div>
+            <div>
+              <div class="testi-name">David Kimura</div>
+              <div class="testi-sub">Japanese-Kenyan, Intermediate level</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"The business Swahili course helped me close deals faster and connect authentically with Kenyan clients. Worth every shilling and more."</blockquote>
+          <div class="testi-author">
+            <div class="avatar">AM</div>
+            <div>
+              <div class="testi-name">Aisha Mohamed</div>
+              <div class="testi-sub">Business consultant, Nairobi CBD</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Newsletter ── -->
+  <section id="newsletter">
+    <div class="container">
+      <span class="section-label" style="color:rgba(255,255,255,.6)">Jiunge • Join</span>
+      <h2>Ready to Start Your Journey?</h2>
+      <p class="lead">Get weekly lesson tips, event invites, and a free Swahili phrasebook PDF when you sign up.</p>
+      <form class="signup-form" onsubmit="handleSignup(event)">
+        <input type="email" placeholder="Your email address" required aria-label="Email address" />
+        <button type="submit" class="btn-white">Jiunge Bure — Join Free</button>
+      </form>
+      <p class="signup-note">No spam. Unsubscribe any time. 🔒 Your data stays private.</p>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Nairobi <span>Swahili</span></a>
+        <p>A community-first language school celebrating Swahili culture, connecting Nairobi's global citizens through the beauty of East African language.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#lessons">Beginner Classes</a></li>
+          <li><a href="#lessons">Intermediate</a></li>
+          <li><a href="#lessons">Advanced</a></li>
+          <li><a href="#lessons">Kids Program</a></li>
+          <li><a href="#lessons">Business Swahili</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#meetups">Upcoming Meetups</a></li>
+          <li><a href="#vocab">Vocab Flashcards</a></li>
+          <li><a href="#testimonials">Success Stories</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:habari@nairobiswahili.co.ke">habari@nairobiswahili.co.ke</a></li>
+          <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+          <li><a href="#">Westlands, Nairobi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nairobi Swahili. Made with ❤️ in Nairobi.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter/X">𝕏</a>
+        <a href="#" aria-label="WhatsApp">WA</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile nav toggle ──
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // ── Ticker phrases ──
+    const phrases = [
+      'Karibu — Welcome',
+      'Asante sana — Thank you very much',
+      'Habari yako? — How are you?',
+      'Pole pole — Slowly / Take it easy',
+      'Hakuna matata — No worries',
+      'Mambo vipi? — What\'s up?',
+      'Tutaonana — See you later',
+      'Chakula kizuri — Delicious food',
+      'Jifunze kila siku — Learn every day',
+      'Nairobi ni nyumbani — Nairobi is home',
+    ];
+    let phraseIdx = 0;
+    const tickerEl = document.getElementById('ticker-text');
+    setInterval(() => {
+      tickerEl.style.opacity = '0';
+      setTimeout(() => {
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        tickerEl.textContent = phrases[phraseIdx];
+        tickerEl.style.opacity = '1';
+      }, 400);
+    }, 3500);
+
+    // ── Scroll-reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Counter animation ──
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.target;
+        const suffix = target >= 1000 ? '+' : '+';
+        let start = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          start = Math.min(start + step, target);
+          el.textContent = start.toLocaleString() + suffix;
+          if (start >= target) clearInterval(timer);
+        }, 24);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => countObserver.observe(el));
+
+    // ── Vocabulary flashcards ──
+    const vocab = [
+      { sw: 'Asante',    en: 'Thank you',     ex: '"Asante sana" — Thank you very much' },
+      { sw: 'Karibu',    en: 'Welcome / You\'re welcome', ex: '"Karibu nyumbani" — Welcome home' },
+      { sw: 'Habari',    en: 'News / How are you?', ex: '"Habari za asubuhi" — Morning news / Good morning' },
+      { sw: 'Chakula',   en: 'Food',           ex: '"Chakula kizuri sana" — Very delicious food' },
+      { sw: 'Maji',      en: 'Water',          ex: '"Maji baridi, tafadhali" — Cold water, please' },
+      { sw: 'Rafiki',    en: 'Friend',         ex: '"Rafiki yangu" — My friend' },
+      { sw: 'Jua',       en: 'Sun / To know',  ex: '"Jua kali" — Bright sun (also: informal economy)' },
+      { sw: 'Twende',    en: 'Let\'s go!',     ex: '"Twende haraka" — Let\'s go quickly' },
+      { sw: 'Maisha',    en: 'Life',           ex: '"Maisha ni mazuri" — Life is beautiful' },
+      { sw: 'Pamoja',    en: 'Together',       ex: '"Tutafanikiwa pamoja" — We will succeed together' },
+    ];
+    let vocabIdx = 0;
+    const flashcard = document.getElementById('flashcard');
+    const swEl = document.getElementById('swahili-word');
+    const enEl = document.getElementById('english-word');
+    const exEl = document.getElementById('word-example');
+    const counter = document.getElementById('vocab-counter');
+
+    function updateCard() {
+      flashcard.classList.remove('flipped');
+      setTimeout(() => {
+        swEl.textContent = vocab[vocabIdx].sw;
+        enEl.textContent = vocab[vocabIdx].en;
+        exEl.textContent = vocab[vocabIdx].ex;
+        counter.textContent = (vocabIdx + 1) + ' / ' + vocab.length;
+      }, 320);
+    }
+    flashcard.addEventListener('click', () => flashcard.classList.toggle('flipped'));
+    document.getElementById('next-word').addEventListener('click', () => {
+      vocabIdx = (vocabIdx + 1) % vocab.length; updateCard();
+    });
+    document.getElementById('prev-word').addEventListener('click', () => {
+      vocabIdx = (vocabIdx - 1 + vocab.length) % vocab.length; updateCard();
+    });
+
+    // ── Newsletter sign-up ──
+    function handleSignup(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Asante! Check your inbox.';
+      btn.style.background = 'var(--clr-forest)';
+      btn.style.color = '#fff';
+      btn.disabled = true;
+    }
+  </script>
 </body>
 </html>
