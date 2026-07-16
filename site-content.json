@@ -1,13 +1,28 @@
 {
   "aboutMe": {
     "sectionLabel": "About Me • Kuhusu Mimi",
-    "title": "Meet Your Guide / Mfahamu Mwalimu Wako",
-    "intro": "I am a Nairobi-based Swahili coach helping beginners, professionals, and families learn practical Kiswahili for everyday confidence.",
-    "photoCaption": "Photo: Replace with the actual instructor portrait",
+    "title": "Karibuni! Welcome (plural)!",
+    "intro": "I am a passionate Swahili teacher and tutor with over 17 years of experience helping learners of all ages develop confidence and fluency in Kiswahili.",
+    "photoCaption": "",
+    "body": [
+      "Whether you are taking your first steps as a beginner or refining your advanced language skills, I provide engaging, practical, and personalized lessons designed around your unique learning goals.",
+      "I hold a Bachelor's Degree from Kenyatta University, one of Kenya's leading institutions. To continually enhance my teaching practice, I completed a Refresher Course in Kiswahili Teaching at the University of Dar es Salaam and participated in the African Languages Teaching Workshop organized by the NALRC Summer Institute in 2024.",
+      "My teaching style is fun, interactive, and personalized. I believe language is best learned through meaningful communication, practical activities, and appreciation of the rich cultures where Kiswahili is spoken. Every lesson is tailored to your pace, interests, and objectives.",
+      "I teach children, teenagers, and adults, offering lessons both online and in person. Whether you are learning for travel, business, school, work, or personal enrichment, I will help you build confidence to use Swahili in real-life situations.",
+      "My goal is simple: to make learning Swahili enjoyable, accessible, and rewarding while helping every learner achieve lasting confidence in the language.",
+      "Karibuni tujifunze Kiswahili pamoja! Welcome all - let's learn Swahili together!",
+      "Book a free trial lesson. I would love to help you begin or continue your Swahili learning journey. Together we will discuss your goals, assess your current level, and create a personalized learning plan that works for you.",
+      "I look forward to meeting you and helping you speak Swahili with confidence!"
+    ],
     "points": [
-      "8+ years teaching Swahili in community spaces and corporate teams.",
-      "Focus on confidence first: speaking, listening, and cultural context.",
-      "Classes blend grammar, real conversation, and Kenyan street expressions."
+      "Conversational Swahili",
+      "Travel Swahili",
+      "Business Swahili",
+      "Children's Swahili",
+      "Grammar",
+      "Vocabulary development",
+      "Pronunciation",
+      "Cultural insights and practical communication skills"
     ],
     "image": {
       "src": "./images/Oloo.jpeg",
@@ -16,12 +31,21 @@
   },
   "aboutSwahili": {
     "sectionLabel": "About Swahili • Kuhusu Kiswahili",
-    "title": "Language of Connection / Lugha ya Uhusiano",
-    "intro": "Kiswahili connects East Africa across business, travel, media, and friendship. It is expressive, musical, and deeply rooted in coast-to-city culture.",
+    "title": "Swahili (Kiswahili): A Language That Connects Africa",
+    "intro": "Swahili, also known as Kiswahili, is a Bantu language that originated along the East African coast and has grown into one of the most widely spoken languages in Africa.",
+    "body": [
+      "Today, an estimated 100 to 150 million people speak Swahili worldwide. It is used across much of East and Central Africa, including Kenya, Tanzania, Uganda, Rwanda, Burundi, the Democratic Republic of the Congo (DRC), Malawi, Zambia, Mozambique, Somalia, the Comoros, and South Africa.",
+      "Swahili holds official status in several countries: Kenya (official language alongside English), Tanzania (both national and official language), Uganda (official language alongside English), and the DRC (one of four national languages alongside Kikongo, Lingala, and Tshiluba).",
+      "Swahili also serves as the lingua franca of the East African Community (EAC), enabling people from different linguistic backgrounds to communicate effectively.",
+      "The language has gained continental and international recognition. In 2004, Swahili became one of the official languages of the African Union (AU), making it the first African language to receive this status. In 2020, South Africa approved the teaching of Swahili in its schools, reflecting its growing importance across the continent.",
+      "Today, Swahili continues to expand in influence as a language of education, business, diplomacy, tourism, and culture, connecting millions of people across Africa and beyond."
+    ],
     "points": [
-      "Spoken by over 200 million people across East and Central Africa.",
-      "Useful for local life in Nairobi: transport, markets, work, and social circles.",
-      "Built from rich coastal history with Arabic, Bantu, and global influences."
+      "Estimated 100-150 million speakers worldwide",
+      "Official language in Kenya, Tanzania, and Uganda",
+      "National language in the DRC and lingua franca in the EAC",
+      "Official African Union language since 2004",
+      "Taught in South African schools since 2020"
     ],
     "image": {
       "src": "./images/about-swahili.jpg",

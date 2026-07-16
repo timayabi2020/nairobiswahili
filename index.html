@@ -91,8 +91,43 @@
         url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=1400&q=80') center/cover no-repeat;
       padding: 5rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
     }
-    .hero-inner { max-width: 780px; margin: auto; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,.13) 0 3px,
+          rgba(255,255,255,0) 3px 24px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(0,0,0,.22) 0 2px,
+          rgba(0,0,0,0) 2px 22px
+        ),
+        radial-gradient(circle at 15% 18%, rgba(187,30,16,.36), transparent 32%),
+        radial-gradient(circle at 86% 82%, rgba(0,107,63,.32), transparent 35%);
+      opacity: .42;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 10px;
+      background: linear-gradient(90deg, #111111 0 31%, #ffffff 31% 34%, #bb1e10 34% 66%, #ffffff 66% 69%, #006b3f 69% 100%);
+      z-index: 0;
+    }
+    .hero-inner { max-width: 780px; margin: auto; position: relative; z-index: 1; }
     .hero-badge {
       display: inline-block;
       background: rgba(0,0,0,.72);
@@ -160,11 +195,50 @@
       gap: 2rem;
       align-items: center;
     }
+    #about-me,
+    #about-swahili {
+      position: relative;
+      overflow: hidden;
+    }
+    #about-me::before,
+    #about-swahili::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 8% 24%, rgba(0,107,63,.14) 0 22%, transparent 23%),
+        radial-gradient(circle at 92% 78%, rgba(187,30,16,.12) 0 20%, transparent 21%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(17,17,17,.05) 0 12px,
+          rgba(255,255,255,.0) 12px 24px,
+          rgba(187,30,16,.05) 24px 36px,
+          rgba(255,255,255,.0) 36px 48px,
+          rgba(0,107,63,.05) 48px 60px,
+          rgba(255,255,255,.0) 60px 72px
+        );
+      opacity: .55;
+    }
     .story-panel {
-      background: #fff;
+      background: linear-gradient(170deg, #ffffff 0%, #f8f6f1 100%);
       border-radius: var(--radius);
       padding: 1.8rem;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(17,17,17,.08);
+      position: relative;
+    }
+    .story-panel::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      width: 22px;
+      height: 30px;
+      border-radius: 50% 50% 60% 60%;
+      background: linear-gradient(180deg, #111111 0 31%, #ffffff 31% 34%, #bb1e10 34% 66%, #ffffff 66% 69%, #006b3f 69% 100%);
+      box-shadow: 0 0 0 2px rgba(17,17,17,.12);
+      opacity: .8;
     }
     .story-list {
       list-style: none;
@@ -177,6 +251,16 @@
     .story-list li {
       border-left: 3px solid rgba(193,68,14,.22);
       padding-left: .8rem;
+    }
+    .about-long-copy {
+      margin-top: 1rem;
+      display: grid;
+      gap: .8rem;
+      color: var(--clr-muted);
+      font-size: .93rem;
+    }
+    .about-long-copy p {
+      line-height: 1.72;
     }
     .story-image {
       border-radius: var(--radius);
@@ -209,6 +293,15 @@
       border-radius: var(--radius);
       padding: 1.2rem;
       background: linear-gradient(180deg, #fff 0%, #fdf6ec 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 8px;
+      background: linear-gradient(180deg, #111111 0 33%, #bb1e10 33% 66%, #006b3f 66% 100%);
     }
     .program-card h3 {
       font-family: 'Playfair Display', serif;
@@ -222,7 +315,17 @@
       background:
         radial-gradient(circle at 10% 20%, rgba(232,160,32,.16), transparent 45%),
         radial-gradient(circle at 92% 82%, rgba(26,60,94,.14), transparent 42%),
-        #f7efe4;
+        linear-gradient(180deg, #f7f3ed 0%, #f2ede4 100%);
+      position: relative;
+    }
+    #dunia::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #111111 0 31%, #ffffff 31% 34%, #bb1e10 34% 66%, #ffffff 66% 69%, #006b3f 69% 100%);
     }
     .dunia-grid {
       display: grid;
@@ -234,6 +337,7 @@
       border-radius: var(--radius);
       padding: 1.2rem;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(17,17,17,.07);
     }
     .dunia-card .mini {
       display: inline-block;
@@ -442,16 +546,44 @@
 
     /* ── Testimonials ── */
     #testimonials { background: #fff; }
+    #testimonials {
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(17,17,17,.05), transparent 34%),
+        radial-gradient(circle at 88% 80%, rgba(0,107,63,.09), transparent 28%),
+        #fff;
+    }
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #111111 0 31%, #ffffff 31% 34%, #bb1e10 34% 66%, #ffffff 66% 69%, #006b3f 69% 100%);
+    }
     .testi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.6rem;
     }
     .testi-card {
-      background: var(--clr-cream);
+      background: linear-gradient(160deg, #ffffff 0%, #f4f1ea 100%);
       border-radius: var(--radius);
       padding: 1.8rem;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(17,17,17,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .testi-card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #111111 0 33%, #bb1e10 33% 66%, #006b3f 66% 100%);
     }
     .testi-card blockquote {
       font-size: .95rem; color: var(--clr-muted);
@@ -463,10 +595,11 @@
     .testi-author { display: flex; align-items: center; gap: .8rem; }
     .avatar {
       width: 42px; height: 42px; border-radius: 50%;
-      background: var(--clr-earth);
+      background: linear-gradient(145deg, #111111 0%, #bb1e10 58%, #006b3f 100%);
       color: #fff;
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: .9rem;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(17,17,17,.08);
     }
     .avatar img {
       width: 100%;
@@ -614,6 +747,7 @@
         <span class="section-label" id="about-me-label">About Me • Kuhusu Mimi</span>
         <h2 id="about-me-title">Meet Your Guide / Mfahamu Mwalimu Wako</h2>
         <p class="lead" id="about-me-intro">I am a Nairobi-based Swahili coach helping beginners, professionals, and families learn practical Kiswahili for everyday confidence.</p>
+        <div class="about-long-copy" id="about-me-body"></div>
         <ul class="story-list" id="about-me-points">
           <li>8+ years teaching Swahili in community spaces and corporate teams.</li>
           <li>Focus on confidence first: speaking, listening, and cultural context.</li>
@@ -622,7 +756,7 @@
       </div>
       <figure class="story-image reveal">
         <img id="about-me-image" src="./images/about-me-placeholder.svg" alt="Add a profile photo for the instructor" loading="lazy" />
-        <figcaption id="about-me-photo-caption">Photo: Add your profile photo path in site-content.json</figcaption>
+        <figcaption id="about-me-photo-caption"></figcaption>
       </figure>
     </div>
   </section>
@@ -637,6 +771,7 @@
         <span class="section-label" id="about-swahili-label">About Swahili • Kuhusu Kiswahili</span>
         <h2 id="about-swahili-title">Language of Connection / Lugha ya Uhusiano</h2>
         <p class="lead" id="about-swahili-intro">Kiswahili connects East Africa across business, travel, media, and friendship. It is expressive, musical, and deeply rooted in coast-to-city culture.</p>
+        <div class="about-long-copy" id="about-swahili-body"></div>
         <ul class="story-list" id="about-swahili-points">
           <li>Spoken by over 200 million people across East and Central Africa.</li>
           <li>Useful for local life in Nairobi: transport, markets, work, and social circles.</li>
@@ -1154,7 +1289,8 @@
         sectionLabel: 'About Me • Kuhusu Mimi',
         title: 'Meet Your Guide / Mfahamu Mwalimu Wako',
         intro: 'I am a Nairobi-based Swahili coach helping beginners, professionals, and families learn practical Kiswahili for everyday confidence.',
-        photoCaption: 'Photo: Add your profile photo path in site-content.json',
+        photoCaption: '',
+        body: [],
         points: [
           '8+ years teaching Swahili in community spaces and corporate teams.',
           'Focus on confidence first: speaking, listening, and cultural context.',
@@ -1169,6 +1305,7 @@
         sectionLabel: 'About Swahili • Kuhusu Kiswahili',
         title: 'Language of Connection / Lugha ya Uhusiano',
         intro: 'Kiswahili connects East Africa across business, travel, media, and friendship. It is expressive, musical, and deeply rooted in coast-to-city culture.',
+        body: [],
         points: [
           'Spoken by over 200 million people across East and Central Africa.',
           'Useful for local life in Nairobi: transport, markets, work, and social circles.',
@@ -1291,6 +1428,18 @@
       listEl.innerHTML = points.map((point) => `<li>${point}</li>`).join('');
     }
 
+    function renderParagraphs(containerId, paragraphs) {
+      const containerEl = document.getElementById(containerId);
+      if (!containerEl) return;
+      if (!Array.isArray(paragraphs) || paragraphs.length === 0) {
+        containerEl.innerHTML = '';
+        containerEl.style.display = 'none';
+        return;
+      }
+      containerEl.style.display = 'grid';
+      containerEl.innerHTML = paragraphs.map((text) => `<p>${text}</p>`).join('');
+    }
+
     function renderPrograms(items) {
       const grid = document.getElementById('programs-grid');
       if (!grid || !Array.isArray(items) || items.length === 0) return;
@@ -1365,13 +1514,20 @@
       applyText('about-me-label', merged.aboutMe.sectionLabel);
       applyText('about-me-title', merged.aboutMe.title);
       applyText('about-me-intro', merged.aboutMe.intro);
-      applyText('about-me-photo-caption', merged.aboutMe.photoCaption || DEFAULT_SITE_CONTENT.aboutMe.photoCaption);
+      const aboutMeCaptionEl = document.getElementById('about-me-photo-caption');
+      const aboutMeCaptionText = typeof merged.aboutMe.photoCaption === 'string' ? merged.aboutMe.photoCaption.trim() : '';
+      if (aboutMeCaptionEl) {
+        aboutMeCaptionEl.textContent = aboutMeCaptionText;
+        aboutMeCaptionEl.style.display = aboutMeCaptionText ? 'block' : 'none';
+      }
+      renderParagraphs('about-me-body', merged.aboutMe.body);
       renderBullets('about-me-points', merged.aboutMe.points);
       applyImage('about-me-image', merged.aboutMe.image);
 
       applyText('about-swahili-label', merged.aboutSwahili.sectionLabel);
       applyText('about-swahili-title', merged.aboutSwahili.title);
       applyText('about-swahili-intro', merged.aboutSwahili.intro);
+      renderParagraphs('about-swahili-body', merged.aboutSwahili.body);
       renderBullets('about-swahili-points', merged.aboutSwahili.points);
       applyImage('about-swahili-image', merged.aboutSwahili.image);
 
