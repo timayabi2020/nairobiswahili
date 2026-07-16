@@ -102,19 +102,29 @@
       pointer-events: none;
       background:
         repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,.18) 0 2px,
+          rgba(255,255,255,0) 2px 26px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.16) 0 2px,
+          rgba(255,255,255,0) 2px 26px
+        ),
+        repeating-linear-gradient(
           45deg,
-          rgba(255,255,255,.13) 0 3px,
-          rgba(255,255,255,0) 3px 24px
+          rgba(187,30,16,.32) 0 8px,
+          rgba(187,30,16,0) 8px 42px
         ),
         repeating-linear-gradient(
           -45deg,
-          rgba(0,0,0,.22) 0 2px,
-          rgba(0,0,0,0) 2px 22px
+          rgba(0,107,63,.28) 0 8px,
+          rgba(0,107,63,0) 8px 42px
         ),
-        radial-gradient(circle at 15% 18%, rgba(187,30,16,.36), transparent 32%),
-        radial-gradient(circle at 86% 82%, rgba(0,107,63,.32), transparent 35%);
-      opacity: .42;
-      mix-blend-mode: screen;
+        radial-gradient(circle at 15% 18%, rgba(187,30,16,.42), transparent 35%),
+        radial-gradient(circle at 86% 82%, rgba(0,107,63,.38), transparent 38%);
+      opacity: .58;
+      mix-blend-mode: overlay;
       z-index: 0;
     }
     .hero::after {
@@ -227,6 +237,22 @@
       box-shadow: var(--shadow);
       border: 1px solid rgba(17,17,17,.08);
       position: relative;
+    }
+    .story-panel.scrollable {
+      max-height: 72vh;
+      overflow-y: auto;
+      padding-right: 1.1rem;
+    }
+    .story-panel.scrollable::-webkit-scrollbar {
+      width: 10px;
+    }
+    .story-panel.scrollable::-webkit-scrollbar-track {
+      background: rgba(17,17,17,.08);
+      border-radius: 999px;
+    }
+    .story-panel.scrollable::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #111111 0%, #bb1e10 55%, #006b3f 100%);
+      border-radius: 999px;
     }
     .story-panel::after {
       content: '';
@@ -503,6 +529,46 @@
       padding: .2rem .6rem; border-radius: 999px;
       background: rgba(193,68,14,.1); color: var(--clr-earth);
     }
+    .meetup-empty {
+      background: linear-gradient(155deg, #111111 0%, #bb1e10 58%, #006b3f 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,.25);
+    }
+    .meetup-empty::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 2px, transparent 2px 22px);
+      opacity: .45;
+      pointer-events: none;
+    }
+    .meetup-empty h3,
+    .meetup-empty p,
+    .meetup-empty a,
+    .meetup-empty .pill-inline { position: relative; z-index: 1; }
+    .meetup-empty h3 { font-size: 1.08rem; margin-bottom: .45rem; }
+    .meetup-empty p { color: rgba(255,255,255,.88); margin-bottom: .8rem; }
+    .pill-inline {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: .28rem .7rem;
+      font-size: .75rem;
+      margin-right: .4rem;
+      margin-bottom: .35rem;
+    }
+    .meetup-empty a {
+      display: inline-block;
+      margin-top: .6rem;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 600;
+    }
 
     /* ── Vocab flashcard ── */
     #vocab { background: var(--clr-sky); color: #fff; text-align: center; }
@@ -693,6 +759,7 @@
       .nav-links.open { display: flex; }
       .nav-toggle { display: flex; }
       .story-grid { grid-template-columns: 1fr; }
+      .story-panel.scrollable { max-height: 60vh; }
       .contact-wrap { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -743,7 +810,7 @@
   <!-- ── About Me ── -->
   <section id="about-me">
     <div class="container story-grid">
-      <div class="story-panel reveal">
+      <div class="story-panel scrollable reveal">
         <span class="section-label" id="about-me-label">About Me • Kuhusu Mimi</span>
         <h2 id="about-me-title">Meet Your Guide / Mfahamu Mwalimu Wako</h2>
         <p class="lead" id="about-me-intro">I am a Nairobi-based Swahili coach helping beginners, professionals, and families learn practical Kiswahili for everyday confidence.</p>
@@ -767,7 +834,7 @@
       <div class="story-image reveal">
         <img id="about-swahili-image" src="https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?w=900&q=80" alt="Street life in Nairobi representing Swahili culture" loading="lazy" />
       </div>
-      <div class="story-panel reveal">
+      <div class="story-panel scrollable reveal">
         <span class="section-label" id="about-swahili-label">About Swahili • Kuhusu Kiswahili</span>
         <h2 id="about-swahili-title">Language of Connection / Lugha ya Uhusiano</h2>
         <p class="lead" id="about-swahili-intro">Kiswahili connects East Africa across business, travel, media, and friendship. It is expressive, musical, and deeply rooted in coast-to-city culture.</p>
@@ -1204,40 +1271,7 @@
     loadLessons();
 
     // ── Meetups (data-driven from meetups.json) ──
-    const DEFAULT_MEETUPS = [
-      {
-        date: '2026-07-19',
-        title: 'Swahili Movie Night — "Nairobi Half Life"',
-        location: 'The Alchemist, Westlands',
-        time: '6:30 PM – 9:30 PM',
-        cost: 'Free entry',
-        tags: ['All Levels', 'Social', 'Free']
-      },
-      {
-        date: '2026-07-26',
-        title: 'Saturday Language Exchange Cafe',
-        location: 'Java House, Karen',
-        time: '9:00 AM – 12:00 PM',
-        cost: 'Bring your own coffee',
-        tags: ['Conversation', 'Beginner-friendly', 'Weekly']
-      },
-      {
-        date: '2026-08-02',
-        title: 'Swahili Cooking Class & Dinner',
-        location: 'Foodie Studio, Kilimani',
-        time: '3:00 PM – 7:00 PM',
-        cost: 'KES 1,500',
-        tags: ['Cultural', 'Food', 'Intermediate+']
-      },
-      {
-        date: '2026-08-16',
-        title: 'Taarab Music & Swahili Poetry Evening',
-        location: 'Kenya National Theatre, CBD',
-        time: '7:00 PM – 10:00 PM',
-        cost: 'KES 500',
-        tags: ['Arts & Culture', 'Music', 'All Welcome']
-      }
-    ];
+    const DEFAULT_MEETUPS = [];
 
     const meetupListEl = document.getElementById('meetup-list');
 
@@ -1253,6 +1287,22 @@
     }
 
     function renderMeetups(meetups) {
+      if (!Array.isArray(meetups) || meetups.length === 0) {
+        meetupListEl.innerHTML = `
+          <article class="meetup-empty reveal">
+            <h3>Hakuna Mikutano kwa Sasa / No Meetups Posted Yet</h3>
+            <p>Our next community meetup is brewing. Check back soon or join the list to get first notice when new Nairobi Swahili events drop.</p>
+            <span class="pill-inline">Karibuni</span>
+            <span class="pill-inline">Coming Soon</span>
+            <span class="pill-inline">Nairobi Community</span>
+            <br />
+            <a href="#newsletter">Get Meetup Alerts</a>
+          </article>
+        `;
+        meetupListEl.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        return;
+      }
+
       meetupListEl.innerHTML = meetups.map((meetup) => {
         const date = formatMeetupDate(meetup.date);
         const tags = (meetup.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join('');
@@ -1275,7 +1325,6 @@
         if (!response.ok) throw new Error('Unable to load meetups.json');
         const payload = await response.json();
         const meetups = Array.isArray(payload) ? payload : payload.meetups;
-        if (!Array.isArray(meetups) || meetups.length === 0) throw new Error('No meetups found');
         renderMeetups(meetups);
       } catch (_) {
         renderMeetups(DEFAULT_MEETUPS);
