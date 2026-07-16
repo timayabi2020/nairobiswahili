@@ -1,0 +1,133 @@
+{
+  "aboutMe": {
+    "sectionLabel": "About Me • Kuhusu Mimi",
+    "title": "Meet Your Guide / Mfahamu Mwalimu Wako",
+    "intro": "I am a Nairobi-based Swahili coach helping beginners, professionals, and families learn practical Kiswahili for everyday confidence.",
+    "photoCaption": "Photo: Replace with the actual instructor portrait",
+    "points": [
+      "8+ years teaching Swahili in community spaces and corporate teams.",
+      "Focus on confidence first: speaking, listening, and cultural context.",
+      "Classes blend grammar, real conversation, and Kenyan street expressions."
+    ],
+    "image": {
+      "src": "./images/Oloo.jpeg",
+      "alt": "Portrait photo of Oloo"
+    }
+  },
+  "aboutSwahili": {
+    "sectionLabel": "About Swahili • Kuhusu Kiswahili",
+    "title": "Language of Connection / Lugha ya Uhusiano",
+    "intro": "Kiswahili connects East Africa across business, travel, media, and friendship. It is expressive, musical, and deeply rooted in coast-to-city culture.",
+    "points": [
+      "Spoken by over 200 million people across East and Central Africa.",
+      "Useful for local life in Nairobi: transport, markets, work, and social circles.",
+      "Built from rich coastal history with Arabic, Bantu, and global influences."
+    ],
+    "image": {
+      "src": "./images/about-swahili.jpg",
+      "alt": "Street life in Nairobi representing Swahili culture"
+    }
+  },
+  "programs": {
+    "sectionLabel": "Courses & Programs • Kozi na Programu",
+    "title": "Choose Your Path / Chagua Njia Yako",
+    "intro": "From private coaching to team training, each program is built around goals you can actually use in the real world.",
+    "items": [
+      {
+        "title": "Private Coaching / Mafunzo Binafsi",
+        "description": "1:1 sessions tailored for relocation, travel, or confidence building in daily conversations."
+      },
+      {
+        "title": "Family Program / Programu ya Familia",
+        "description": "Playful sessions for parents and children learning together through stories, games, and songs."
+      },
+      {
+        "title": "Corporate Track / Mafunzo ya Kampuni",
+        "description": "Professional vocabulary, workplace etiquette, and roleplay scenarios for teams in Nairobi."
+      },
+      {
+        "title": "Community Immersion / Mazoezi ya Jamii",
+        "description": "Practice weeks with guided meetups, market missions, and cultural storytelling circles."
+      }
+    ]
+  },
+  "dunia": {
+    "sectionLabel": "Dunia Wiki Hii • This Week in the World",
+    "title": "Global Stories, Local Language / Habari za Dunia kwa Kiswahili",
+    "intro": "Use current topics to build modern vocabulary you can use in real conversations this week.",
+    "items": [
+      {
+        "tag": "Tech • Teknolojia",
+        "title": "AI in Schools / Akili Unde Mashuleni",
+        "description": "Learn terms for policy, innovation, and education reform as AI tools expand in classrooms.",
+        "image": {
+          "src": "./images/dunia-tech.jpg",
+          "alt": "Students in a modern classroom"
+        }
+      },
+      {
+        "tag": "Climate • Hali ya Hewa",
+        "title": "Urban Rain Plans / Mipango ya Mvua Mijini",
+        "description": "Practice weather and infrastructure vocabulary through East African flood-prevention news.",
+        "image": {
+          "src": "./images/dunia-climate.jpg",
+          "alt": "Urban drainage and rain clouds"
+        }
+      },
+      {
+        "tag": "Culture • Utamaduni",
+        "title": "Festival Season / Msimu wa Tamasha",
+        "description": "Talk about music, fashion, and identity with bilingual prompts from regional festival stories.",
+        "image": {
+          "src": "./images/dunia-culture.jpg",
+          "alt": "Colorful East African cultural event"
+        }
+      }
+    ]
+  },
+  "calendar": {
+    "sectionLabel": "Calendar • Kalenda ya Kiswahili",
+    "title": "Your Week in Swahili / Wiki Yako kwa Kiswahili",
+    "intro": "Plan your lessons and meetups using day and month names in Kiswahili.",
+    "daysToShow": 7
+  },
+  "testimonials": [
+    {
+      "quote": "I moved to Nairobi knowing zero Swahili. Six months later I'm chatting with my neighbors and bargaining at Gikomba. This community changed my life.",
+      "name": "Sophie Laurent",
+      "subtitle": "French expat, 8 months in Nairobi",
+      "initials": "SL",
+      "image": {
+        "src": "./images/testimonial-sophie.jpg",
+        "alt": "Portrait of Sophie Laurent"
+      }
+    },
+    {
+      "quote": "The meetups are the highlight of my month. You practice in a relaxed setting and leave with new friends. The teachers are patient and genuinely passionate.",
+      "name": "David Kimura",
+      "subtitle": "Japanese-Kenyan, Intermediate level",
+      "initials": "DK"
+    },
+    {
+      "quote": "The business Swahili course helped me close deals faster and connect authentically with Kenyan clients. Worth every shilling and more.",
+      "name": "Aisha Mohamed",
+      "subtitle": "Business consultant, Nairobi CBD",
+      "initials": "AM"
+    }
+  ],
+  "contacts": {
+    "sectionLabel": "Contacts • Mawasiliano",
+    "title": "Talk to Us / Wasiliana Nasi",
+    "intro": "For classes, partnerships, and speaking events, use any option below and we respond within one business day.",
+    "cards": [
+      {
+        "title": "General Inquiries / Maswali ya Jumla",
+        "description": "Email: habari@nairobiswahili.co.ke<br />Phone: +254 721868070<br />Location: Westlands, Nairobi"
+      },
+      {
+        "title": "Programs & Partnerships / Ushirikiano",
+        "description": "Corporate teams, schools, NGOs, and travel groups can request tailored training plans and workshop series."
+      }
+    ]
+  }
+}

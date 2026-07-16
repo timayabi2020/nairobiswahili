@@ -2,6 +2,55 @@
 
 This site now loads meetup events from `meetups.json` so you do not need to edit `index.html` to update upcoming events.
 It also loads the lessons section heading, intro, and lesson cards from `lessons.json`.
+It now also loads template sections (About, Programs, Dunia Wiki Hii, Calendar, Testimonials, Contacts) from `site-content.json`.
+
+## Update Template Sections (No Coding Needed)
+
+1. Open `site-content.json`.
+2. Edit section text under keys like `aboutMe`, `aboutSwahili`, `programs`, `dunia`, `calendar`, `testimonials`, and `contacts`.
+3. Save and commit.
+
+### Important fields
+
+- `sectionLabel`: bilingual mini heading
+- `title`: main bilingual heading
+- `intro`: section paragraph
+- `items` / `cards`: list content for cards
+- `points`: bullet content for About sections
+
+## Image Provision
+
+The website supports images from:
+
+1. Local project images in `images/`
+2. Remote image URLs (for example, CDN links)
+
+To use local images:
+
+1. Add files to `images/`.
+2. Set image paths in `site-content.json` using `./images/filename.jpg`.
+
+### Image JSON structure examples
+
+For single section image:
+
+```json
+"image": {
+	"src": "./images/about-me.jpg",
+	"alt": "About me photo"
+}
+```
+
+For item card image:
+
+```json
+"image": {
+	"src": "./images/dunia-tech.jpg",
+	"alt": "Technology story image"
+}
+```
+
+See `images/README.md` for suggested filenames.
 
 ## Update Meetups (No Coding Needed)
 
