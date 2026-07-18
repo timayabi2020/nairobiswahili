@@ -658,6 +658,25 @@
       border-left: 3px solid var(--clr-gold);
       padding-left: 1rem;
     }
+    .testi-card blockquote.testi-quote.is-collapsed {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .testi-toggle {
+      background: none;
+      border: none;
+      color: var(--clr-earth);
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0;
+      margin: -.55rem 0 .95rem;
+    }
+    .testi-toggle:hover { text-decoration: underline; }
     .testi-author { display: flex; align-items: center; gap: .8rem; }
     .avatar {
       width: 42px; height: 42px; border-radius: 50%;
@@ -738,13 +757,14 @@
       flex-wrap: wrap; gap: .8rem;
       font-size: .8rem;
     }
-    .social-links { display: flex; gap: 1rem; }
+    .social-links { display: flex; gap: .55rem; flex-wrap: wrap; justify-content: center; }
     .social-links a {
-      width: 34px; height: 34px;
-      border-radius: 50%;
+      padding: .42rem .72rem;
+      border-radius: 999px;
       border: 1px solid rgba(255,255,255,.2);
       display: flex; align-items: center; justify-content: center;
-      font-size: .8rem;
+      font-size: .74rem;
+      line-height: 1;
       transition: border-color var(--transition), color var(--transition);
     }
     .social-links a:hover { border-color: var(--clr-gold); color: var(--clr-gold); }
@@ -762,6 +782,13 @@
       .story-panel.scrollable { max-height: 60vh; }
       .contact-wrap { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { gap: 1rem; }
+      .testi-card { padding: 1.2rem; }
+      .testi-card blockquote {
+        font-size: .9rem;
+        line-height: 1.55;
+        margin-bottom: 1rem;
+      }
     }
     @media (max-width: 520px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -988,36 +1015,48 @@
 
         <div class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <blockquote>"I moved to Nairobi knowing zero Swahili. Six months later I'm chatting with my neighbors and bargaining at Gikomba. This community changed my life."</blockquote>
+          <blockquote class="testi-quote">"Hamjambo? Ningependa kupendekeza mwalimu na rafiki wangu Oloo kwa mahitaji yote ya kujifunza Kiswahili. Nilikuwa na masomo naye kwa miaka mingi mpaka kuongea Kiswahili kwa fasaha. Oloo anafundisha vizuri kwa namna taratibu ambayo inajumuisha mada mbalimbali za kupendeza ndio usichoke. Ana subira pamoja na ustadi wa Kiswahili kwa hivyo utaendelea kwa haraka. Yeye ndiye sababu niliwahi kufanikiwa kwa upande wa Kiswahili na hivyo inavyowezakana kwako pia. Nakuhimiza kujifunza naye usiachwe nje ya uswahilini."</blockquote>
           <div class="testi-author">
-            <div class="avatar">SL</div>
+            <div class="avatar">AD</div>
             <div>
-              <div class="testi-name">Sophie Laurent</div>
-              <div class="testi-sub">French expat, 8 months in Nairobi</div>
+              <div class="testi-name">Adam</div>
+              <div class="testi-sub">Testimonial in Kiswahili</div>
             </div>
           </div>
         </div>
 
         <div class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <blockquote>"The meetups are the highlight of my month. You practice in a relaxed setting and leave with new friends. The teachers are patient and genuinely passionate."</blockquote>
+          <blockquote class="testi-quote">"Hello! I would like to recommend my friend and teacher Oloo for all your Swahili learning needs. For years I learned under Oloo until I reached a fluent level of Swahili. Oloo is a professional teacher who is knowledgeable on many subjects to keep you engaged. He is patient and has significant expertise in Swahili so you will learn quickly. He is the reason why I was able to succeed in Swahili and he can be for you too. I encourage you to study with him so you do not get left behind in the exciting world of Swahili."</blockquote>
           <div class="testi-author">
-            <div class="avatar">DK</div>
+            <div class="avatar">AD</div>
             <div>
-              <div class="testi-name">David Kimura</div>
-              <div class="testi-sub">Japanese-Kenyan, Intermediate level</div>
+              <div class="testi-name">Adam</div>
+              <div class="testi-sub">English Translation</div>
             </div>
           </div>
         </div>
 
         <div class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <blockquote>"The business Swahili course helped me close deals faster and connect authentically with Kenyan clients. Worth every shilling and more."</blockquote>
+          <blockquote class="testi-quote">"I started learning Swahili with Nairobi Swahili because being a business woman in Kenya it helps me to be able to interact with my business partners. The homework after our lessons made it easier for me to grasp the language faster."</blockquote>
           <div class="testi-author">
-            <div class="avatar">AM</div>
+            <div class="avatar">CY</div>
             <div>
-              <div class="testi-name">Aisha Mohamed</div>
-              <div class="testi-sub">Business consultant, Nairobi CBD</div>
+              <div class="testi-name">Cynthia</div>
+              <div class="testi-sub">Businesswoman in Kenya</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote class="testi-quote">"I've been taking Swahili lessons with Nairobi Swahili for almost 4 years. What I like about learning with them is that they adapt the teaching style to your wants and needs. They can do formal grammar lessons with homework if you like that, or focus more on conversation if you like things a bit more casual. In my lessons, we always do 20-30 mins of conversation at the beginning, which I've found very useful in practicing speaking and listening. They are also very receptive to teaching whatever you are struggling with. Often, I hear something on the street or in a song and bring it up and they help me understand. This also helps the information stick because it relates to my life. They are creative with lessons too - sometimes we read stories or the newspaper or listen to a song. I'm not fluent yet, but I can understand a lot of Swahili these days and express myself. I'd definitely recommend you try a lesson!"</blockquote>
+          <div class="testi-author">
+            <div class="avatar">RA</div>
+            <div>
+              <div class="testi-name">Rachel</div>
+              <div class="testi-sub">Long-term learner (4 years)</div>
             </div>
           </div>
         </div>
@@ -1049,7 +1088,7 @@
       <div class="contact-wrap" id="contacts-wrap">
         <article class="contact-card reveal">
           <h3>General Inquiries / Maswali ya Jumla</h3>
-          <p>Email: habari@nairobiswahili.co.ke<br />Phone: +254 721868070<br />Location: Westlands, Nairobi</p>
+          <p>Telephone &amp; WhatsApp: +254 737 868070<br />Email: nbo.swahili@gmail.com<br />Location: Westlands, Nairobi</p>
         </article>
         <article class="contact-card reveal">
           <h3>Programs & Partnerships / Ushirikiano</h3>
@@ -1088,8 +1127,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:habari@nairobiswahili.co.ke">habari@nairobiswahili.co.ke</a></li>
-          <li><a href="tel:+254721868070">+254 721868070</a></li>
+          <li><a href="mailto:nbo.swahili@gmail.com">nbo.swahili@gmail.com</a></li>
+          <li><a href="tel:+254737868070">+254 737 868070</a></li>
           <li><a href="#">Westlands, Nairobi</a></li>
         </ul>
       </div>
@@ -1097,10 +1136,12 @@
     <div class="footer-bottom">
       <span>© 2026 Nairobi Swahili. Made with ❤️ in Nairobi.</span>
       <div class="social-links">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Twitter/X">𝕏</a>
-        <a href="#" aria-label="WhatsApp">WA</a>
-        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="Facebook">Facebook: Nairobi Swahili</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn: Nairobi Swahili</a>
+        <a href="#" aria-label="TikTok">TikTok: Nairobi Swahili</a>
+        <a href="#" aria-label="Instagram">Instagram: Nairobi Swahili Enterprises</a>
+        <a href="#" aria-label="X">X: @NboSwahili</a>
+        <a href="#" aria-label="Snapchat">Snapchat: Nairobi Swahili</a>
       </div>
     </div>
   </footer>
@@ -1164,61 +1205,61 @@
     const DEFAULT_LESSONS = {
       sectionLabel: 'Masomo • Lessons',
       title: 'Learn at Your Own Pace',
-      intro: 'From your first "Jambo!" to fluent conversations — we have a class that fits exactly where you are.',
+      intro: 'Choose the Swahili Safari track that matches your stay, or continue with higher-level and conversational coaching.',
       items: [
         {
           levelClass: 'beginner',
           level: 'Beginner',
-          title: 'Kiswahili Basics',
-          description: 'Greetings, numbers, everyday phrases and the building blocks of Swahili grammar.',
-          schedule: 'Every Saturday, 9 AM',
-          duration: '90 min',
+          title: 'Swahili Safari 1',
+          description: 'Tailored for visitors staying for up to one month. Focus on practical day-to-day Swahili for travel and daily interactions.',
+          schedule: 'Tailored plan',
+          duration: 'Up to 1 month',
+          ctaText: 'Enroll →'
+        },
+        {
+          levelClass: 'beginner',
+          level: 'Beginner',
+          title: 'Swahili Safari 2',
+          description: 'Tailored for visitors staying for a maximum of 3 months. Builds confidence for social, travel, and routine communication.',
+          schedule: 'Tailored plan',
+          duration: 'Up to 3 months',
+          ctaText: 'Enroll →'
+        },
+        {
+          levelClass: 'beginner',
+          level: 'Beginner',
+          title: 'Swahili Safari 3 (Swahili Beginners Course)',
+          description: 'Tailored for visitors staying for up to one year. A complete beginner path from essentials to confident, independent use.',
+          schedule: 'Tailored plan',
+          duration: 'Up to 1 year',
           ctaText: 'Enroll →'
         },
         {
           levelClass: 'intermediate',
           level: 'Intermediate',
-          title: 'Conversational Swahili',
-          description: 'Hold real conversations about work, food, travel and Kenyan culture with confidence.',
-          schedule: 'Tuesdays & Thursdays',
-          duration: '2 hrs',
+          title: 'Intermediate Level',
+          description: 'For learners ready to expand vocabulary, improve grammar accuracy, and communicate more naturally across everyday topics.',
+          schedule: 'Flexible',
+          duration: 'Custom pace',
           ctaText: 'Enroll →'
         },
         {
           levelClass: 'advanced',
           level: 'Advanced',
-          title: 'Fluency & Literature',
-          description: 'Dive into Swahili poetry, proverbs, newspaper reading and professional writing.',
-          schedule: 'Wednesdays, 6 PM',
-          duration: '2 hrs',
-          ctaText: 'Enroll →'
-        },
-        {
-          levelClass: 'beginner',
-          level: 'Kids',
-          title: 'Swahili for Children',
-          description: 'Songs, stories and games that make language learning magical for ages 5-12.',
-          schedule: 'Sundays, 10 AM',
-          duration: '60 min',
+          title: 'Advanced Level',
+          description: 'For fluent learners who want mastery in nuanced expression, complex structures, and professional or academic communication.',
+          schedule: 'Flexible',
+          duration: 'Custom pace',
           ctaText: 'Enroll →'
         },
         {
           levelClass: 'intermediate',
-          level: 'Business',
-          title: 'Swahili for Business',
-          description: 'Corporate vocabulary, negotiation phrases, and East African business etiquette.',
-          schedule: 'Fridays, 7 PM',
-          duration: '90 min',
+          level: 'Conversational',
+          title: 'Conversational Swahili',
+          description: 'Focused speaking practice to help you hold real-life conversations smoothly, confidently, and with better listening skills.',
+          schedule: 'Flexible',
+          duration: 'Custom pace',
           ctaText: 'Enroll →'
-        },
-        {
-          levelClass: 'advanced',
-          level: 'Intensive',
-          title: 'Weekend Immersion',
-          description: 'A 2-day intensive retreat - no English allowed. Complete with cultural activities and local excursions.',
-          schedule: 'Monthly',
-          duration: '2 days',
-          ctaText: 'Register →'
         }
       ]
     };
@@ -1418,22 +1459,28 @@
       },
       testimonials: [
         {
-          quote: 'I moved to Nairobi knowing zero Swahili. Six months later I\'m chatting with my neighbors and bargaining at Gikomba. This community changed my life.',
-          name: 'Sophie Laurent',
-          subtitle: 'French expat, 8 months in Nairobi',
-          initials: 'SL'
+          quote: 'Hamjambo? Ningependa kupendekeza mwalimu na rafiki wangu Oloo kwa mahitaji yote ya kujifunza Kiswahili. Nilikuwa na masomo naye kwa miaka mingi mpaka kuongea Kiswahili kwa fasaha. Oloo anafundisha vizuri kwa namna taratibu ambayo inajumuisha mada mbalimbali za kupendeza ndio usichoke. Ana subira pamoja na ustadi wa Kiswahili kwa hivyo utaendelea kwa haraka. Yeye ndiye sababu niliwahi kufanikiwa kwa upande wa Kiswahili na hivyo inavyowezakana kwako pia. Nakuhimiza kujifunza naye usiachwe nje ya uswahilini.',
+          name: 'Adam',
+          subtitle: 'Testimonial in Kiswahili',
+          initials: 'AD'
         },
         {
-          quote: 'The meetups are the highlight of my month. You practice in a relaxed setting and leave with new friends. The teachers are patient and genuinely passionate.',
-          name: 'David Kimura',
-          subtitle: 'Japanese-Kenyan, Intermediate level',
-          initials: 'DK'
+          quote: 'Hello! I would like to recommend my friend and teacher Oloo for all your Swahili learning needs. For years I learned under Oloo until I reached a fluent level of Swahili. Oloo is a professional teacher who is knowledgeable on many subjects to keep you engaged. He is patient and has significant expertise in Swahili so you will learn quickly. He is the reason why I was able to succeed in Swahili and he can be for you too. I encourage you to study with him so you do not get left behind in the exciting world of Swahili.',
+          name: 'Adam',
+          subtitle: 'English Translation',
+          initials: 'AD'
         },
         {
-          quote: 'The business Swahili course helped me close deals faster and connect authentically with Kenyan clients. Worth every shilling and more.',
-          name: 'Aisha Mohamed',
-          subtitle: 'Business consultant, Nairobi CBD',
-          initials: 'AM'
+          quote: 'I started learning Swahili with Nairobi Swahili because being a business woman in Kenya it helps me to be able to interact with my business partners. The homework after our lessons made it easier for me to grasp the language faster.',
+          name: 'Cynthia',
+          subtitle: 'Businesswoman in Kenya',
+          initials: 'CY'
+        },
+        {
+          quote: 'I\'ve been taking Swahili lessons with Nairobi Swahili for almost 4 years. What I like about learning with them is that they adapt the teaching style to your wants and needs. They can do formal grammar lessons with homework if you like that, or focus more on conversation if you like things a bit more casual. In my lessons, we always do 20-30 mins of conversation at the beginning, which I\'ve found very useful in practicing speaking and listening. They are also very receptive to teaching whatever you are struggling with. Often, I hear something on the street or in a song and bring it up and they help me understand. This also helps the information stick because it relates to my life. They are creative with lessons too - sometimes we read stories or the newspaper or listen to a song. I\'m not fluent yet, but I can understand a lot of Swahili these days and express myself. I\'d definitely recommend you try a lesson!',
+          name: 'Rachel',
+          subtitle: 'Long-term learner (4 years)',
+          initials: 'RA'
         }
       ],
       contacts: {
@@ -1443,7 +1490,7 @@
         cards: [
           {
             title: 'General Inquiries / Maswali ya Jumla',
-            description: 'Email: habari@nairobiswahili.co.ke<br />Phone: +254 721868070<br />Location: Westlands, Nairobi'
+            description: 'Telephone & WhatsApp: +254 737 868070<br />Email: nbo.swahili@gmail.com<br />Location: Westlands, Nairobi'
           },
           {
             title: 'Programs & Partnerships / Ushirikiano',
@@ -1521,7 +1568,7 @@
       grid.innerHTML = items.map((item) => `
         <div class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <blockquote>"${item.quote || ''}"</blockquote>
+          <blockquote class="testi-quote">"${item.quote || ''}"</blockquote>
           <div class="testi-author">
             <div class="avatar">${item.image ? `<img src="${item.image.src || ''}" alt="${item.image.alt || item.name || 'Learner'}" loading="lazy" data-hide-on-error="true" />` : (item.initials || 'NS')}</div>
             <div>
@@ -1532,7 +1579,47 @@
         </div>
       `).join('');
       grid.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      setupTestimonialToggles();
     }
+
+    function setupTestimonialToggles() {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      document.querySelectorAll('#testimonials-grid .testi-toggle').forEach((btn) => btn.remove());
+
+      document.querySelectorAll('#testimonials-grid .testi-quote').forEach((quote) => {
+        quote.classList.remove('is-collapsed');
+        quote.setAttribute('data-expanded', 'true');
+
+        if (!isMobile) return;
+        if ((quote.textContent || '').trim().length < 260) return;
+
+        quote.classList.add('is-collapsed');
+        quote.setAttribute('data-expanded', 'false');
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'testi-toggle';
+        btn.textContent = 'Read more / Soma zaidi';
+        btn.setAttribute('aria-expanded', 'false');
+
+        btn.addEventListener('click', () => {
+          const expanded = quote.getAttribute('data-expanded') === 'true';
+          quote.classList.toggle('is-collapsed', expanded);
+          quote.setAttribute('data-expanded', expanded ? 'false' : 'true');
+          btn.textContent = expanded ? 'Read more / Soma zaidi' : 'Read less / Soma kidogo';
+          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        });
+
+        quote.insertAdjacentElement('afterend', btn);
+      });
+    }
+
+    let testimonialResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(testimonialResizeTimer);
+      testimonialResizeTimer = setTimeout(setupTestimonialToggles, 140);
+    });
 
     function renderContacts(cards) {
       const wrap = document.getElementById('contacts-wrap');

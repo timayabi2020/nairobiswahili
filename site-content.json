@@ -117,26 +117,28 @@
   },
   "testimonials": [
     {
-      "quote": "I moved to Nairobi knowing zero Swahili. Six months later I'm chatting with my neighbors and bargaining at Gikomba. This community changed my life.",
-      "name": "Sophie Laurent",
-      "subtitle": "French expat, 8 months in Nairobi",
-      "initials": "SL",
-      "image": {
-        "src": "./images/testimonial-sophie.jpg",
-        "alt": "Portrait of Sophie Laurent"
-      }
+      "quote": "Hamjambo? Ningependa kupendekeza mwalimu na rafiki wangu Oloo kwa mahitaji yote ya kujifunza Kiswahili. Nilikuwa na masomo naye kwa miaka mingi mpaka kuongea Kiswahili kwa fasaha. Oloo anafundisha vizuri kwa namna taratibu ambayo inajumuisha mada mbalimbali za kupendeza ndio usichoke. Ana subira pamoja na ustadi wa Kiswahili kwa hivyo utaendelea kwa haraka. Yeye ndiye sababu niliwahi kufanikiwa kwa upande wa Kiswahili na hivyo inavyowezakana kwako pia. Nakuhimiza kujifunza naye usiachwe nje ya uswahilini.",
+      "name": "Adam",
+      "subtitle": "Testimonial in Kiswahili",
+      "initials": "AD"
     },
     {
-      "quote": "The meetups are the highlight of my month. You practice in a relaxed setting and leave with new friends. The teachers are patient and genuinely passionate.",
-      "name": "David Kimura",
-      "subtitle": "Japanese-Kenyan, Intermediate level",
-      "initials": "DK"
+      "quote": "Hello! I would like to recommend my friend and teacher Oloo for all your Swahili learning needs. For years I learned under Oloo until I reached a fluent level of Swahili. Oloo is a professional teacher who is knowledgeable on many subjects to keep you engaged. He is patient and has significant expertise in Swahili so you will learn quickly. He is the reason why I was able to succeed in Swahili and he can be for you too. I encourage you to study with him so you do not get left behind in the exciting world of Swahili.",
+      "name": "Adam",
+      "subtitle": "English Translation",
+      "initials": "AD"
     },
     {
-      "quote": "The business Swahili course helped me close deals faster and connect authentically with Kenyan clients. Worth every shilling and more.",
-      "name": "Aisha Mohamed",
-      "subtitle": "Business consultant, Nairobi CBD",
-      "initials": "AM"
+      "quote": "I started learning Swahili with Nairobi Swahili because being a business woman in Kenya it helps me to be able to interact with my business partners. The homework after our lessons made it easier for me to grasp the language faster.",
+      "name": "Cynthia",
+      "subtitle": "Businesswoman in Kenya",
+      "initials": "CY"
+    },
+    {
+      "quote": "I've been taking Swahili lessons with Nairobi Swahili for almost 4 years. What I like about learning with them is that they adapt the teaching style to your wants and needs. They can do formal grammar lessons with homework if you like that, or focus more on conversation if you like things a bit more casual. In my lessons, we always do 20-30 mins of conversation at the beginning, which I've found very useful in practicing speaking and listening. They are also very receptive to teaching whatever you are struggling with. Often, I hear something on the street or in a song and bring it up and they help me understand. This also helps the information stick because it relates to my life. They are creative with lessons too - sometimes we read stories or the newspaper or listen to a song. I'm not fluent yet, but I can understand a lot of Swahili these days and express myself. I'd definitely recommend you try a lesson!",
+      "name": "Rachel",
+      "subtitle": "Long-term learner (4 years)",
+      "initials": "RA"
     }
   ],
   "contacts": {
@@ -146,7 +148,7 @@
     "cards": [
       {
         "title": "General Inquiries / Maswali ya Jumla",
-        "description": "Email: habari@nairobiswahili.co.ke<br />Phone: +254 721868070<br />Location: Westlands, Nairobi"
+        "description": "Telephone & WhatsApp: +254 737 868070<br />Email: nbo.swahili@gmail.com<br />Location: Westlands, Nairobi"
       },
       {
         "title": "Programs & Partnerships / Ushirikiano",

@@ -1,61 +1,61 @@
 {
   "sectionLabel": "Masomo • Lessons",
   "title": "Learn at Your Own Pace",
-  "intro": "From your first \"Jambo!\" to fluent conversations — we have a class that fits exactly where you are.",
+  "intro": "Choose the Swahili Safari track that matches your stay, or continue with higher-level and conversational coaching.",
   "items": [
     {
       "levelClass": "beginner",
       "level": "Beginner",
-      "title": "Kiswahili Basics",
-      "description": "Greetings, numbers, everyday phrases and the building blocks of Swahili grammar.",
-      "schedule": "Every Saturday, 9 AM",
-      "duration": "90 min",
+      "title": "Swahili Safari 1",
+      "description": "Tailored for visitors staying for up to one month. Focus on practical day-to-day Swahili for travel and daily interactions.",
+      "schedule": "Tailored plan",
+      "duration": "Up to 1 month",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "intermediate",
+      "level": "Beginner",
+      "title": "Swahili Safari 2",
+      "description": "Tailored for visitors staying for a maximum of 3 months. Builds confidence for social, travel, and routine communication.",
+      "schedule": "Tailored plan",
+      "duration": "Up to 3 months",
+      "ctaText": "Enroll →"
+    },
+    {
+      "levelClass": "beginner",
+      "level": "Beginner",
+      "title": "Swahili Safari 3 (Swahili Beginners Course)",
+      "description": "Tailored for visitors staying for up to one year. A complete beginner path from essentials to confident, independent use.",
+      "schedule": "Tailored plan",
+      "duration": "Up to 1 year",
       "ctaText": "Enroll →"
     },
     {
       "levelClass": "intermediate",
       "level": "Intermediate",
-      "title": "Conversational Swahili",
-      "description": "Hold real conversations about work, food, travel and Kenyan culture with confidence.",
-      "schedule": "Tuesdays & Thursdays",
-      "duration": "2 hrs",
+      "title": "Intermediate Level",
+      "description": "For learners ready to expand vocabulary, improve grammar accuracy, and communicate more naturally across everyday topics.",
+      "schedule": "Flexible",
+      "duration": "Custom pace",
       "ctaText": "Enroll →"
     },
     {
       "levelClass": "advanced",
       "level": "Advanced",
-      "title": "Fluency & Literature",
-      "description": "Dive into Swahili poetry, proverbs, newspaper reading and professional writing.",
-      "schedule": "Wednesdays, 6 PM",
-      "duration": "2 hrs",
-      "ctaText": "Enroll →"
-    },
-    {
-      "levelClass": "beginner",
-      "level": "Kids",
-      "title": "Swahili for Children",
-      "description": "Songs, stories and games that make language learning magical for ages 5-12.",
-      "schedule": "Sundays, 10 AM",
-      "duration": "60 min",
+      "title": "Advanced Level",
+      "description": "For fluent learners who want mastery in nuanced expression, complex structures, and professional or academic communication.",
+      "schedule": "Flexible",
+      "duration": "Custom pace",
       "ctaText": "Enroll →"
     },
     {
       "levelClass": "intermediate",
-      "level": "Business",
-      "title": "Swahili for Business",
-      "description": "Corporate vocabulary, negotiation phrases, and East African business etiquette.",
-      "schedule": "Fridays, 7 PM",
-      "duration": "90 min",
+      "level": "Conversational",
+      "title": "Conversational Swahili",
+      "description": "Focused speaking practice to help you hold real-life conversations smoothly, confidently, and with better listening skills.",
+      "schedule": "Flexible",
+      "duration": "Custom pace",
       "ctaText": "Enroll →"
-    },
-    {
-      "levelClass": "advanced",
-      "level": "Intensive",
-      "title": "Weekend Immersion",
-      "description": "A 2-day intensive retreat - no English allowed. Complete with cultural activities and local excursions.",
-      "schedule": "Monthly",
-      "duration": "2 days",
-      "ctaText": "Register →"
     }
   ]
 }
