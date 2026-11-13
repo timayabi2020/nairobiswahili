@@ -5,7 +5,7 @@
   const submit = document.getElementById('enrollment-submit');
   const status = document.getElementById('enrollment-status');
   const date = document.getElementById('enrollment-date');
-  let endpoint = 'https://script.google.com/macros/s/AKfycbz6gMuLriEytKpZsFf3GI0ppPhFIRwNvqaDZAa8ovLozDIxvLLVyMjZ3fXV7Ib33aL6vA/exec';
+  let endpoint = 'https://script.google.com/macros/s/AKfycbyjbaqzQ5nYVFx5rExu_HHBOMcMDDbdjJRJ2M3un996PAGgwfHFcXtantCBOsCjR31lLg/exec';
   let pending = null;
   let delivered = false;
   let trigger = null;
