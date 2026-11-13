@@ -22,6 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./enrollment.css" />
+  <script src="./enrollment.js" defer></script>
   <style>
     /* ── Design tokens ── */
     :root {
@@ -948,6 +950,53 @@
     </div>
   </section>
 
+  <dialog id="enrollment-dialog" aria-labelledby="enrollment-title" aria-describedby="enrollment-intro">
+    <div class="enrollment-heading">
+      <span class="section-label">Karibu / Welcome</span>
+      <button type="button" class="enrollment-close" aria-label="Close enrollment">&times;</button>
+      <h2 id="enrollment-title">Your Swahili journey starts here</h2>
+      <p id="enrollment-intro">Tell us a little about yourself. We will get in touch to plan your lessons.</p>
+    </div>
+    <div class="enrollment-content">
+      <p class="enrollment-course">Your lesson: <strong id="enrollment-lesson-label"></strong></p>
+      <form id="enrollment-form" method="post" target="enrollment-delivery">
+        <input type="hidden" name="lesson" id="enrollment-lesson" />
+        <input type="hidden" name="requestId" id="enrollment-request-id" />
+        <div class="enrollment-trap" aria-hidden="true" inert>
+          <label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+        <fieldset id="enrollment-fields">
+          <div class="enrollment-grid">
+            <label class="enrollment-wide" for="enrollment-name">Full name <span>(required)</span>
+              <input id="enrollment-name" name="name" autocomplete="name" maxlength="120" required autofocus />
+            </label>
+            <label for="enrollment-phone">Phone contact <span>(required)</span>
+              <input id="enrollment-phone" name="phone" type="tel" autocomplete="tel" placeholder="+254 7XX XXX XXX" minlength="7" maxlength="30" pattern="[+0-9\(\) .\-]{7,30}" required />
+            </label>
+            <label for="enrollment-email">Email address <span>(required)</span>
+              <input id="enrollment-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+            </label>
+            <label class="enrollment-wide" for="enrollment-date">Preferred start date <span>(optional)</span>
+              <input id="enrollment-date" name="startDate" type="date" />
+            </label>
+            <label class="enrollment-wide" for="enrollment-message">Questions, goals or suggestions <span>(optional)</span>
+              <textarea id="enrollment-message" name="message" rows="4" maxlength="2000" placeholder="What would you love to learn? Tell us about your availability or ask us anything."></textarea>
+            </label>
+          </div>
+          <label class="enrollment-consent">
+            <input type="checkbox" name="consent" value="yes" required />
+            <span>I agree to Nairobi Swahili using these details to respond to my lesson enquiry. This does not sign me up for marketing.</span>
+          </label>
+          <p class="enrollment-note">No payment required. Your preferred date is a request, not a confirmed booking. Your details are sent privately to our Gmail inbox via Google.</p>
+          <button type="submit" class="btn btn-primary" id="enrollment-submit" disabled>Send lesson enquiry</button>
+        </fieldset>
+      </form>
+      <p id="enrollment-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p class="enrollment-help">Prefer to talk? <a href="mailto:nbo.swahili@gmail.com">Email us directly</a> or <a href="tel:+254737868070">call +254 737 868070</a>.</p>
+    </div>
+  </dialog>
+  <iframe name="enrollment-delivery" id="enrollment-delivery" title="Private enrollment delivery" hidden></iframe>
+
   <!-- ── Meetups ── -->
   <section id="meetups">
     <div class="container">
@@ -1288,7 +1337,7 @@
       lessonsTitleEl.textContent = lessonsData.title || DEFAULT_LESSONS.title;
       lessonsIntroEl.textContent = lessonsData.intro || DEFAULT_LESSONS.intro;
 
-      lessonsCardsEl.innerHTML = (lessonsData.items || []).map((lesson) => {
+      lessonsCardsEl.innerHTML = (lessonsData.items || []).map((lesson, index) => {
         const levelClass = lesson.levelClass || 'beginner';
         const ctaText = lesson.ctaText || 'Enroll →';
         return `
@@ -1302,7 +1351,7 @@
                 <span>📅 ${lesson.schedule || ''}</span>
                 <span>⏱ ${lesson.duration || ''}</span>
               </div>
-              <a href="#newsletter" class="pill ${levelClass}">${ctaText}</a>
+              <button type="button" class="pill ${levelClass}" data-enroll="${index}" aria-haspopup="dialog" aria-controls="enrollment-dialog">${ctaText}</button>
             </div>
           </div>
         `;

@@ -1,0 +1,55 @@
+body.enrollment-open { overflow: hidden; }
+#enrollment-dialog {
+  margin: auto;
+  padding: 0;
+  width: min(640px, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  border: 0;
+  border-radius: 20px;
+  background: var(--clr-cream);
+  color: var(--clr-dark);
+  box-shadow: 0 24px 80px rgba(0,0,0,.3);
+  overflow: auto;
+}
+#enrollment-dialog::backdrop { background: rgba(14,14,14,.7); backdrop-filter: blur(4px); }
+.enrollment-heading { position: relative; padding: 2rem 2rem 1.4rem; border-top: 6px solid var(--clr-forest); }
+.enrollment-heading .section-label { margin-bottom: .6rem; padding-right: 2rem; }
+.enrollment-heading h2 { font-size: clamp(1.6rem, 5vw, 2rem); margin-bottom: .6rem; padding-right: 1rem; }
+.enrollment-heading p, .enrollment-note, .enrollment-help { color: var(--clr-muted); font-size: .88rem; }
+.enrollment-close {
+  position: absolute; top: .8rem; right: .8rem;
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: #fff; color: var(--clr-dark); font-size: 1.8rem; cursor: pointer;
+}
+.enrollment-content { padding: 0 2rem 2rem; }
+.enrollment-course { background: #fff; border-left: 4px solid var(--clr-forest); padding: .8rem 1rem; margin-bottom: 1.2rem; overflow-wrap: anywhere; }
+#enrollment-fields { border: 0; min-width: 0; }
+.enrollment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.enrollment-wide { grid-column: 1 / -1; }
+.enrollment-grid label { font-size: .86rem; font-weight: 600; min-width: 0; }
+.enrollment-grid label span { font-weight: 400; color: var(--clr-muted); }
+.enrollment-grid input, .enrollment-grid textarea {
+  display: block; width: 100%; min-width: 0; margin-top: .35rem; padding: .75rem;
+  border: 1px solid #969696; border-radius: 8px; background: #fff;
+  color: var(--clr-dark); font: inherit; font-size: 1rem;
+}
+.enrollment-grid textarea { resize: vertical; }
+#enrollment-dialog :focus-visible { outline: 3px solid var(--clr-forest); outline-offset: 3px; }
+.enrollment-consent { display: flex; align-items: flex-start; gap: .65rem; margin: 1.2rem 0 .8rem; font-size: .82rem; }
+.enrollment-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: .2rem; accent-color: var(--clr-forest); }
+.enrollment-note { margin-bottom: 1.2rem; font-size: .78rem; }
+#enrollment-submit { width: 100%; border: 0; font-family: inherit; }
+#enrollment-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+#enrollment-status:not(:empty) { margin-top: 1rem; padding: 1rem; background: #fff; border-left: 4px solid var(--clr-forest); border-radius: 4px; }
+#enrollment-status[data-error="true"] { border-color: var(--clr-earth); }
+.enrollment-help { margin-top: 1rem; font-size: .8rem; }
+.enrollment-help a { text-decoration: underline; text-underline-offset: 3px; }
+.enrollment-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+button.pill { background: transparent; font-family: inherit; }
+#lessons-cards button.pill:hover { color: #fff; }
+@media (max-width: 520px) {
+  .enrollment-heading { padding: 1.5rem 1.2rem 1rem; }
+  .enrollment-content { padding: 0 1.2rem 1.5rem; }
+  .enrollment-grid { grid-template-columns: minmax(0, 1fr); }
+}
