@@ -712,40 +712,6 @@
     .testi-sub  { font-size: .78rem; color: var(--clr-muted); }
     .stars { color: var(--clr-gold); font-size: .85rem; letter-spacing: 1px; margin-bottom: .3rem; }
 
-    /* ── Newsletter ── */
-    #newsletter {
-      background: linear-gradient(135deg, #111111 0%, #bb1e10 58%, #006b3f 100%);
-      color: #fff; text-align: center;
-    }
-    #newsletter h2 { color: #fff; }
-    #newsletter .lead { color: rgba(255,255,255,.8); margin: 0 auto 2rem; }
-    .signup-form {
-      display: flex; gap: .8rem; max-width: 480px; margin: auto;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .signup-form input {
-      flex: 1; min-width: 220px;
-      padding: .85rem 1.2rem;
-      border-radius: 999px;
-      border: none;
-      font-size: .95rem;
-      outline: none;
-      background: rgba(255,255,255,.15);
-      color: #fff;
-    }
-    .signup-form input::placeholder { color: rgba(255,255,255,.55); }
-    .signup-form input:focus { background: rgba(255,255,255,.22); }
-    .btn-white {
-      background: #fff; color: var(--clr-earth);
-      padding: .85rem 2rem;
-      border-radius: 999px;
-      font-weight: 700; font-size: .95rem;
-      border: none; cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
-    .signup-note { font-size: .78rem; opacity: .6; margin-top: .8rem; }
-
     /* ── Footer ── */
     footer {
       background: var(--clr-dark);
@@ -1128,20 +1094,6 @@
     </div>
   </section>
 
-  <!-- ── Newsletter ── -->
-  <section id="newsletter">
-    <div class="container">
-      <span class="section-label" style="color:rgba(255,255,255,.6)">Jiunge • Join</span>
-      <h2>Ready to Start Your Journey? / Uko Tayari Kuanza Safari Yako?</h2>
-      <p class="lead">Get weekly lesson tips, event invites, and a free Swahili phrasebook PDF when you sign up.</p>
-      <form class="signup-form" onsubmit="handleSignup(event)">
-        <input type="email" placeholder="Your email address" required aria-label="Email address" />
-        <button type="submit" class="btn-white">Jiunge Bure — Join Free</button>
-      </form>
-      <p class="signup-note">No spam. Unsubscribe any time. 🔒 Your data stays private.</p>
-    </div>
-  </section>
-
   <!-- ── Contacts ── -->
   <section id="contacts">
     <div class="container">
@@ -1184,7 +1136,6 @@
           <li><a href="#meetups">Upcoming Meetups</a></li>
           <li><a href="#vocab">Vocab Flashcards</a></li>
           <li><a href="#testimonials">Success Stories</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1395,12 +1346,12 @@
         meetupListEl.innerHTML = `
           <article class="meetup-empty reveal">
             <h3>Hakuna Mikutano kwa Sasa / No Meetups Posted Yet</h3>
-            <p>Our next community meetup is brewing. Check back soon or join the list to get first notice when new Nairobi Swahili events drop.</p>
+            <p>Our next community meetup is brewing. Check back soon for upcoming Nairobi Swahili events, or contact us with any questions.</p>
             <span class="pill-inline">Karibuni</span>
             <span class="pill-inline">Coming Soon</span>
             <span class="pill-inline">Nairobi Community</span>
             <br />
-            <a href="#newsletter">Get Meetup Alerts</a>
+            <a href="#contacts">Ask About Meetups</a>
           </article>
         `;
         meetupListEl.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
@@ -1809,16 +1760,6 @@
     document.getElementById('prev-word').addEventListener('click', () => {
       vocabIdx = (vocabIdx - 1 + vocab.length) % vocab.length; updateCard();
     });
-
-    // ── Newsletter sign-up ──
-    function handleSignup(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = '✓ Asante! Check your inbox.';
-      btn.style.background = 'var(--clr-forest)';
-      btn.style.color = '#fff';
-      btn.disabled = true;
-    }
 
     // ── Swahili week calendar ──
     const SW_DAY_NAMES = ['Jumapili', 'Jumatatu', 'Jumanne', 'Jumatano', 'Alhamisi', 'Ijumaa', 'Jumamosi'];
